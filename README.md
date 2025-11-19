@@ -5,7 +5,7 @@ This repository contains the exercises for the EmbliCats LiDAR Lab.
 ## Setup
 
 ```bash
-git clone https://github.com/EmbliCats/lidar-lab-exercises.git
+git clone https://github.com/emblica/lidar-lab-exercises.git
 cd lidar-lab-exercises
 ```
 
