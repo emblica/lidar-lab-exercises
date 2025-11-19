@@ -1,0 +1,17 @@
+[project]
+name = "lidar-lab-exercises"
+version = "0.1.0"
+description = "EmbliCats LiDAR Lab exercises"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=7.1.0",
+    "matplotlib>=3.10.7",
+    "msgpack>=1.1.2",
+    "nbformat>=5.10.4",
+    "numpy>=2.3.5",
+    "open3d>=0.19.0",
+    "plotly>=6.5.0",
+    "rerun-sdk>=0.27.2",
+    "websockets>=15.0.1",
+]
