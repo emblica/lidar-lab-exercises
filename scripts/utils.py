@@ -34,11 +34,11 @@ def map_colors(norm: np.ndarray) -> np.ndarray:
 def log_rerun(frame: Frame) -> None:
     """Send frame to Rerun viewer."""
     # Commented sections work as a hint of order of transformations. Some might not be needed.
-    # ROTATION
+    # AXIS TRANSFORMATION:
 
-    # FILTERING
+    # (ROTATION:)
 
-    # TRANSFORMATION
+    # SET BOUNDING BOX FILTER:
 
     # COLOR:
     # Distance from the origin

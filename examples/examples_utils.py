@@ -45,6 +45,9 @@ def map_colors(norm: np.ndarray) -> np.ndarray:
 # The main function to be modified for rerun visualization:
 def log_rerun(frame: Frame) -> None:
     """Send frame to Rerun viewer."""
+    # AXIS TRANSFORMATION EXAMPLE: Flip z axix (needed at least for Pertsa lidar)
+    # frame.points = np.column_stack((frame.points[:, 0], frame.points[:, 1], -frame.points[:, 2]))
+
     # ROTATION EXAMPLE: Rotate around z axis by 45 degrees
     # theta = np.radians(45)
     # c, s = np.cos(theta), np.sin(theta)
@@ -53,7 +56,7 @@ def log_rerun(frame: Frame) -> None:
     #               [0, 0, 1]])
     # frame.points = frame.points @ R.T
 
-    # FILTERING EXAMPLE: Select only points inside a bounding box
+    # BOUNDING BOX FILTER EXAMPLE: Select only points inside a bounding box
     # mask = (
     #     (frame.points[:, 0] >= -6) & (frame.points[:, 0] <= 15) &
     #     (frame.points[:, 1] >= -6) & (frame.points[:, 1] <= 6) &
@@ -61,9 +64,6 @@ def log_rerun(frame: Frame) -> None:
     # )
     # frame.points = frame.points[mask]
     # frame.intensity = frame.intensity[mask]
-
-    # TRANSFORMATION EXAMPLE: Flip z axix (needed at least for Pertsa lidar)
-    # frame.points = np.column_stack((frame.points[:, 0], frame.points[:, 1], -frame.points[:, 2]))
 
     # COLOR EXAMPLE: Distance from the origin
     distances = np.linalg.norm(frame.points, axis=1)
@@ -77,7 +77,7 @@ def log_rerun(frame: Frame) -> None:
     # Map to RGB using matplotlib colormap
     colors = map_colors(colors)
 
-    # EXAMPLE of how to do transformations in rerun
+    # EXAMPLE of how to do transformations in rerun:
     # rr.log(
     #     "lidar",
     #     rr.Transform3D(
@@ -97,7 +97,7 @@ def log_rerun(frame: Frame) -> None:
     )
 
 
-# The main function to be modified for matplotlib visualization:
+# Backup option: The main function to be modified for matplotlib visualization
 def update_matplotlib(ax, frame: Frame) -> None:
     """Update a matplotlib 3D scatter plot with the latest frame."""
     points = frame.points

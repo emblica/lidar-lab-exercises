@@ -57,7 +57,7 @@ uv run scripts/exercise_client.py --server ws://INSTRUCTOR_IP:PORT --token INSTR
 uv run scripts/exercise_client.py --server ws://INSTRUCTOR_IP:PORT --token INSTRUCTOR_TOKEN --visualize
 
 # Save data to file
-uv run scripts/exercise_client.py --server ws://INSTRUCTOR_IP:PORT --token INSTRUCTOR_TOKEN --save lidar_data.npz
+uv run scripts/exercise_client.py --server ws://INSTRUCTOR_IP:PORT --token INSTRUCTOR_TOKEN --save FILENAME.npz
   
 # Offline playback from saved file (Rerun)
 uv run scripts/exercise_client.py --play data/FILENAME.npz --rerun
@@ -66,7 +66,11 @@ uv run scripts/exercise_client.py --play data/FILENAME.npz --rerun
 uv run scripts/exercise_client.py --play data/FILENAME.npz --visualize --fps 15
 ```
 
-NOTE: If you are not using `uv`, instead of running with `uv run` use just `python scripts/exercise_client.py ...` 
+NOTE: If you are not using `uv`, just run as `python` instead of `uv run` :
+
+```bash
+python scripts/exercise_client.py ...
+``` 
 
 ---
 
