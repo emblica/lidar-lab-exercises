@@ -9,17 +9,15 @@ git clone https://github.com/emblica/lidar-lab-exercises.git
 cd lidar-lab-exercises
 ```
 
-After that you can go to the exercise notebooks, starting with `00_getting_started.ipynb`. Some basic information below as well.
+After that you can go to the exercise notebooks, starting with `00_getting_started.ipynb`. Some quick start information below as well.
 
 ## LiDAR Workshop Clients
 
 Workshop attendees can visualize live LiDAR point clouds using two different client options. All connect via WebSocket (no ZMQ installation required).
 
-### Quick Start for Attendees:
-
 ### Option 1: Web Viewer (No Installation Required!)
 
-**Simplest option:** Just open the `web/viewer.html` file in your browser.
+**Simplest option:** Just open the `web/viewer.html` file in your browser, and fill in `IP`, `PORT` and `TOKEN` provided by your workshop host.
 
 **Controls:**
 - **Left Mouse**: Rotate view
@@ -32,20 +30,30 @@ Workshop attendees can visualize live LiDAR point clouds using two different cli
 
 For attendees who want to process data programmatically. Setup your environment first!
 
-#### With uv (recommended):
+NOTE: This project targets Python 3.11 or 3.12.
+
+#### Option A: *With uv (recommended):*
 ```bash
 uv sync
 ```
 
-#### Pyenv, venv, global environments etc. with pip:
+If that fails due to python version being >3.12, try this first:
+
+```bash
+uv python pin 3.12 # or 3.11
+```
+
+#### Option B: *With pyenv, venv, global environments etc. using pip:*
+
+Activate your environment first! Then install requirements with:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+-------------------------------------------
 
-
-**Usage:**
+## Usage:
 ```bash
 # Basic connection (no visualization)
 uv run scripts/exercise_client.py --server ws://INSTRUCTOR_IP:PORT --token INSTRUCTOR_TOKEN
@@ -60,10 +68,10 @@ uv run scripts/exercise_client.py --server ws://INSTRUCTOR_IP:PORT --token INSTR
 uv run scripts/exercise_client.py --server ws://INSTRUCTOR_IP:PORT --token INSTRUCTOR_TOKEN --save FILENAME.npz
   
 # Offline playback from saved file (Rerun)
-uv run scripts/exercise_client.py --play data/FILENAME.npz --rerun
+uv run scripts/exercise_client.py --play FILENAME.npz --rerun
 
 # Offline playback (matplotlib) at 15 FPS
-uv run scripts/exercise_client.py --play data/FILENAME.npz --visualize --fps 15
+uv run scripts/exercise_client.py --play FILENAME.npz --visualize --fps 15
 ```
 
 NOTE: If you are not using `uv`, just run as `python` instead of `uv run` :
@@ -72,7 +80,7 @@ NOTE: If you are not using `uv`, just run as `python` instead of `uv run` :
 python scripts/exercise_client.py ...
 ``` 
 
----
+----------------------------------------------
 
 ## Troubleshooting
 

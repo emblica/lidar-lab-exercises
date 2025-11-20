@@ -1,9 +1,9 @@
 ### examples_utils.py
 # ---------------------------------------------------------------------------
-# Working examples for point cloud visualization and processing.
+# Example solutions for point cloud visualization and processing.
 # 
 # NOTE: These scripts are not runnable from this file directly. The actual file
-# clients/python/utils.py has similar structure and is runnable.
+# scripts/utils.py has similar structure and is runnable.
 # Use this file as hints for your own implementations, or to copy-paste code snippets.
 # ---------------------------------------------------------------------------
 
@@ -39,10 +39,8 @@ def map_colors(norm: np.ndarray) -> np.ndarray:
 # Feel free to write more functions here as needed!
 
 # ---------------------------------------------------------------------------
-# Visualization functions
+# The main function to be modified for Rerun visualization:
 # ---------------------------------------------------------------------------
-
-# The main function to be modified for rerun visualization:
 def log_rerun(frame: Frame) -> None:
     """Send frame to Rerun viewer."""
     # AXIS TRANSFORMATION EXAMPLE: Flip z axix (needed at least for Pertsa lidar)
@@ -97,7 +95,7 @@ def log_rerun(frame: Frame) -> None:
     )
 
 
-# Backup option: The main function to be modified for matplotlib visualization
+# BACKUP OPTION: The main function to be modified for matplotlib visualization:
 def update_matplotlib(ax, frame: Frame) -> None:
     """Update a matplotlib 3D scatter plot with the latest frame."""
     points = frame.points

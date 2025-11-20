@@ -1,3 +1,15 @@
+### scripts/utils.py
+# ---------------------------------------------------------------------------
+# Utility functions for point cloud processing and visualization.
+# NOTE: This file is intended to be modified by you as part of the exercises in notebook 02_advanced.ipynb.
+#
+# How to use: 
+#   1. Modify log_rerun() function to implement different visualization techniques.
+#       Remember to save your changes!
+#   2. Run the main script (`uv run scripts/exercise_client.py ...``) with the appropriate arguments
+#       to see the results in Rerun viewer.
+# ---------------------------------------------------------------------------
+
 import numpy as np
 import matplotlib.pyplot as plt
 import rerun as rr
@@ -27,10 +39,8 @@ def map_colors(norm: np.ndarray) -> np.ndarray:
 # Feel free to write more functions here as needed!
 
 # ---------------------------------------------------------------------------
-# Visualization functions
-# ---------------------------------------------------------------------------
-
 # The main function to be modified for Rerun visualization:
+# ---------------------------------------------------------------------------
 def log_rerun(frame: Frame) -> None:
     """Send frame to Rerun viewer."""
     # Commented sections work as a hint of order of transformations. Some might not be needed.
@@ -62,7 +72,8 @@ def log_rerun(frame: Frame) -> None:
         static=False,
     )
 
-# The main function to be modified for matplotlib visualization:
+
+# BACKUP OPTION: The main function to be modified for matplotlib visualization:
 def update_matplotlib(ax, frame: Frame) -> None:
     """Update a matplotlib 3D scatter plot with the latest frame."""
     points = frame.points
@@ -90,6 +101,6 @@ def update_matplotlib(ax, frame: Frame) -> None:
     ax.set_zlim([-5, 5])
 
 # ---------------------------------------------------------------------------
-# Hints and examples can be found in examples/utils.py
+# Hints and example solutions can be found in examples/utils.py
 # ---------------------------------------------------------------------------
 
